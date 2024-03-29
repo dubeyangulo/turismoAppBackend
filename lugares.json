@@ -1,0 +1,132 @@
+{
+    "departamentos": [
+        {
+            "nombre": "Amazonas",
+            "ciudades": ["Leticia", "Puerto Nariño"]
+        },
+        {
+            "nombre": "Antioquia",
+            "ciudades": ["Medellín", "Bello", "Envigado"]
+        },
+        {
+            "nombre": "Arauca",
+            "ciudades": ["Arauca", "Saravena"]
+        },
+        {
+            "nombre": "Atlántico",
+            "ciudades": ["Barranquilla", "Soledad", "Malambo"]
+        },
+        {
+            "nombre": "Bolívar",
+            "ciudades": ["Cartagena", "Magangué", "Turbaco"]
+        },
+        {
+            "nombre": "Boyacá",
+            "ciudades": ["Tunja", "Duitama", "Sogamoso"]
+        },
+        {
+            "nombre": "Caldas",
+            "ciudades": ["Manizales", "Pereira", "Armenia"]
+        },
+        {
+            "nombre": "Caquetá",
+            "ciudades": ["Florencia", "San Vicente del Caguán"]
+        },
+        {
+            "nombre": "Casanare",
+            "ciudades": ["Yopal", "Aguazul", "Tauramena"]
+        },
+        {
+            "nombre": "Cauca",
+            "ciudades": ["Popayán", "Santander de Quilichao", "Puerto Tejada"]
+        },
+        {
+            "nombre": "Cesar",
+            "ciudades": ["Valledupar", "Aguachica", "Bosconia"]
+        },
+        {
+            "nombre": "Chocó",
+            "ciudades": ["Quibdó", "Nuquí", "Istmina"]
+        },
+        {
+            "nombre": "Córdoba",
+            "ciudades": ["Montería", "Sincelejo", "Cereté"]
+        },
+        {
+            "nombre": "Cundinamarca",
+            "ciudades": ["Bogotá", "Soacha", "Zipaquirá"]
+        },
+        {
+            "nombre": "Guainía",
+            "ciudades": ["Inírida"]
+        },
+        {
+            "nombre": "Guaviare",
+            "ciudades": ["San José del Guaviare", "Calamar"]
+        },
+        {
+            "nombre": "Huila",
+            "ciudades": ["Neiva", "Pitalito", "Garzón"]
+        },
+        {
+            "nombre": "La Guajira",
+            "ciudades": ["Riohacha", "Maicao", "Uribia"]
+        },
+        {
+            "nombre": "Magdalena",
+            "ciudades": ["Santa Marta", "Ciénaga", "Fundación"]
+        },
+        {
+            "nombre": "Meta",
+            "ciudades": ["Villavicencio", "Acacías", "Granada"]
+        },
+        {
+            "nombre": "Nariño",
+            "ciudades": ["Pasto", "Tumaco", "Ipiales"]
+        },
+        {
+            "nombre": "Norte de Santander",
+            "ciudades": ["Cúcuta", "Ocaña", "Pamplona"]
+        },
+        {
+            "nombre": "Putumayo",
+            "ciudades": ["Mocoa", "Puerto Asís", "Orito"]
+        },
+        {
+            "nombre": "Quindío",
+            "ciudades": ["Armenia", "Calarcá", "La Tebaida"]
+        },
+        {
+            "nombre": "Risaralda",
+            "ciudades": ["Pereira", "Dosquebradas", "La Virginia"]
+        },
+        {
+            "nombre": "San Andrés y Providencia",
+            "ciudades": ["San Andrés", "Providencia"]
+        },
+        {
+            "nombre": "Santander",
+            "ciudades": ["Bucaramanga", "Floridablanca", "Girón"]
+        },
+        {
+            "nombre": "Sucre",
+            "ciudades": ["Sincelejo", "Corozal", "Sincé"]
+        },
+        {
+            "nombre": "Tolima",
+            "ciudades": ["Ibagué", "Espinal", "Melgar"]
+        },
+        {
+            "nombre": "Valle del Cauca",
+            "ciudades": ["Cali", "Buenaventura", "Palmira"]
+        },
+        {
+            "nombre": "Vaupés",
+            "ciudades": ["Mitú"]
+        },
+        {
+            "nombre": "Vichada",
+            "ciudades": ["Puerto Carreño", "Cumaribo"]
+        }
+    ]
+}
