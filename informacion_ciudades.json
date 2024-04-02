@@ -1,0 +1,47 @@
+{
+    "departamentos": [
+        {
+            "nombre": "Cundinamarca",
+            "informacion": "",
+            "municipios": [
+                {
+                    "nombre": "Bogotá",
+                    "informacion": ""
+                },
+                {
+                    "nombre": "Soacha",
+                    "informacion": ""
+                }
+            ]
+        },
+        {
+            "nombre": "Antioquia",
+            "informacion": "",
+            "municipios": [
+                {
+                    "nombre": "Medellín",
+                    "informacion": ""
+                },
+                {
+                    "nombre": "Envigado",
+                    "informacion": ""
+                }
+            ]
+        },
+        {
+            "nombre": "Valle del Cauca",
+            "informacion": "El Valle del Cauca es uno de los 32 departamentos de Colombia. Está ubicado en la región suroccidental del país, limitando al norte con Chocó y Risaralda, al este con Tolima y Quindío, al sur con Cauca y al oeste con el océano Pacífico. Su capital es Santiago de Cali.",
+            "municipios": [
+                {
+                    "nombre": "Cali",
+                    "informacion": "Cali es una ciudad colombiana, capital del departamento del Valle del Cauca, ubicada en el suroeste de Colombia, en la región natural conocida como Valle del Cauca. Es la tercera ciudad más poblada de Colombia después de Bogotá y Medellín. Es conocida como la capital de la salsa y la sucursal del cielo."
+                },
+                {
+                    "nombre": "Buenaventura",
+                    "informacion": "Buenaventura es un municipio colombiano ubicado en el departamento del Valle del Cauca. Es el principal puerto marítimo de Colombia sobre el océano Pacífico. Es el municipio más poblado del departamento y el más importante de la región del Pacífico colombiano. Es conocido como el Distrito Especial, Industrial, Portuario, Biodiverso y Ecoturístico de Buenaventura.",
+                    "imagen": "https://www.imagendelosvallecaucanos.com/web/wp-content/uploads/2021/08/MALECON-DE-BUENAVENTURA-min.jpg" 
+                }
+            ]
+        }
+    ]
+}

@@ -32,7 +32,18 @@ app.get('/informacion/:departamento/:ciudad', (req, res) => {
             if (result.length === 0) {
                 res.status(404).send('No se encontró la información solicitada');
             } else {
-                res.json(result);
+                consultasDb.consultarInformacionDepartamentoCiudad(req.params.departamento, req.params.ciudad)
+                    .then((result) => {
+                        if (result.length === 0) {
+                            res.status(404).send('No se encontró la información solicitada');
+                        } else {
+                            res.json(result);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        res.status(500).send('Hubo un error al consultar la base de datos');
+                    });
             }
         })
         .catch((error) => {
@@ -47,7 +58,11 @@ app.get('/informacion/:departamento/:ciudad', (req, res) => {
         await createDatabase();
         await consultasDb.createTableDepartamentos();
         await consultasDb.createTableCiudades();
+        await consultasDb.createTableInformacionDepartamentos();
+        await consultasDb.createTableInformacionCiudades();
         await consultasDb.insertarDepartamentosYCiudades();
+        await consultasDb.insertarInformacionDepartamentoYCiudad();
+        
         app.listen(port, () => {
             console.log(`La aplicación está escuchando en http://localhost:${port}`);
         });
