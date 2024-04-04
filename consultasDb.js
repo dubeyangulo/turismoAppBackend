@@ -63,6 +63,26 @@ module.exports = {
         }
     },
 
+    createTableComidasTipicas: async function () {
+        const client = pool;
+        try {
+            await client.query(`CREATE TABLE IF NOT EXISTS comidas_tipicas (
+                id SERIAL PRIMARY KEY,
+                nombre VARCHAR(50) NOT NULL,
+                descripcion TEXT,
+                imagen varchar(255),
+                precio_en_pesos DECIMAL(10, 2),
+                precio_en_dolares DECIMAL(10, 2),
+                precio_en_euros DECIMAL(10, 2),
+                id_informacion_ciudades INT NOT NULL,
+                FOREIGN KEY (id_informacion_ciudades) REFERENCES informacion_ciudades(id)
+            )`);
+            console.log('Table comidas_tipicas created successfully.');
+        } catch (error) {
+            console.error('Error creating table comidas_tipicas:', error);
+        }
+    },
+
     // leer archivo json, obtener departamentos y ciudades, si no estan en la base de datos se insertan
     insertarDepartamentosYCiudades: async function () {
         fs.readFile('lugares.json', 'utf8', async (err, data) => {
@@ -138,9 +158,24 @@ module.exports = {
                         const result2 = await client.query('SELECT id FROM informacion_ciudades WHERE nombre = $1 AND id_informacion_departamento = $2', [ciudad.nombre, idDepartamento]);
                         if (result2.rowCount === 0) {
                             // Insertar ciudad
-                            await client.query('INSERT INTO informacion_ciudades (nombre, id_informacion_departamento, informacion, imagen) VALUES ($1, $2, $3, $4)', [ciudad.nombre, idDepartamento, ciudad.informacion, ciudad.imagen]);
+                            const result2 = await client.query('INSERT INTO informacion_ciudades (nombre, id_informacion_departamento, informacion, imagen) VALUES ($1, $2, $3, $4) RETURNING id', [ciudad.nombre, idDepartamento, ciudad.informacion, ciudad.imagen]);
+                            
+                            idInformacionCiudades = result2.rows[0].id;
+                        } else {
+                            idInformacionCiudades = result2.rows[0].id;
+                        }
+
+                        // consultar comidas tipicas por ciudad
+                        for (const comida of ciudad.comidas_tipicas) {
+                            const result4 = await client.query('SELECT id FROM comidas_tipicas WHERE nombre = $1 AND id_informacion_ciudades = $2', [comida.nombre, idInformacionCiudades]);
+                            if (result4.rowCount === 0) {
+                                // Insertar comida tipica
+                                await client.query('INSERT INTO comidas_tipicas (nombre, descripcion, imagen, precio_en_pesos, precio_en_dolares, precio_en_euros, id_informacion_ciudades) VALUES ($1, $2, $3, $4, $5, $6, $7)', [comida.nombre, comida.descripcion, comida.imagen, comida.precio_en_pesos, comida.precio_en_dolares, comida.precio_en_euros, idInformacionCiudades]);
+                            }
                         }
                     }
+
+                    
                 }
                 console.log('Data inserted successfully.');
             });
@@ -162,6 +197,18 @@ module.exports = {
             //obtener informacion del departamento y ciudad
             const result2 = await client.query('SELECT i.nombre AS departamento, i.informacion AS informacion_departamento, c.nombre AS ciudad, c.informacion AS informacion_ciudad, c.imagen AS imagen_ciudad FROM informacion_departamentos i JOIN informacion_ciudades c ON i.id = c.id_informacion_departamento WHERE i.id = $1 AND c.nombre = $2', [idDepartamento, ciudad]);
             return result2.rows;
+        } catch (error) {
+            console.error('Error querying data:', error);
+            return [];
+        }
+    },
+
+    //consultar informacion comidas tipicas
+    consultarComidasTipicas: async function (departamento, ciudad) {
+        const client = pool;
+        try {
+            const result = await client.query('SELECT i.nombre AS departamento, c.nombre AS ciudad, ct.nombre AS comida_tipica, ct.descripcion, ct.imagen, ct.precio_en_pesos, ct.precio_en_dolares, ct.precio_en_euros FROM informacion_departamentos i JOIN informacion_ciudades c ON i.id = c.id_informacion_departamento JOIN comidas_tipicas ct ON c.id = ct.id_informacion_ciudades WHERE i.nombre = $1 AND c.nombre = $2', [departamento, ciudad]);
+            return result.rows;
         } catch (error) {
             console.error('Error querying data:', error);
             return [];

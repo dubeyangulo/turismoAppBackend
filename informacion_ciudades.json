@@ -6,11 +6,15 @@
             "municipios": [
                 {
                     "nombre": "Bogotá",
-                    "informacion": ""
+                    "informacion": "",
+                    "imagen": "",
+                    "comidas_tipicas": []
                 },
                 {
                     "nombre": "Soacha",
-                    "informacion": ""
+                    "informacion": "",
+                    "imagen": "",
+                    "comidas_tipicas": []
                 }
             ]
         },
@@ -20,11 +24,15 @@
             "municipios": [
                 {
                     "nombre": "Medellín",
-                    "informacion": ""
+                    "informacion": "",
+                    "imagen": "",
+                    "comidas_tipicas": []
                 },
                 {
                     "nombre": "Envigado",
-                    "informacion": ""
+                    "informacion": "",
+                    "imagen": "",
+                    "comidas_tipicas": []
                 }
             ]
         },
@@ -34,12 +42,40 @@
             "municipios": [
                 {
                     "nombre": "Cali",
-                    "informacion": "Cali es una ciudad colombiana, capital del departamento del Valle del Cauca, ubicada en el suroeste de Colombia, en la región natural conocida como Valle del Cauca. Es la tercera ciudad más poblada de Colombia después de Bogotá y Medellín. Es conocida como la capital de la salsa y la sucursal del cielo."
+                    "informacion": "Cali es una ciudad colombiana, capital del departamento del Valle del Cauca, ubicada en el suroeste de Colombia, en la región natural conocida como Valle del Cauca. Es la tercera ciudad más poblada de Colombia después de Bogotá y Medellín. Es conocida como la capital de la salsa y la sucursal del cielo.",
+                    "imagen": "",
+                    "comidas_tipicas": []
                 },
                 {
                     "nombre": "Buenaventura",
                     "informacion": "Buenaventura es un municipio colombiano ubicado en el departamento del Valle del Cauca. Es el principal puerto marítimo de Colombia sobre el océano Pacífico. Es el municipio más poblado del departamento y el más importante de la región del Pacífico colombiano. Es conocido como el Distrito Especial, Industrial, Portuario, Biodiverso y Ecoturístico de Buenaventura.",
-                    "imagen": "https://www.imagendelosvallecaucanos.com/web/wp-content/uploads/2021/08/MALECON-DE-BUENAVENTURA-min.jpg" 
+                    "imagen": "https://www.imagendelosvallecaucanos.com/web/wp-content/uploads/2021/08/MALECON-DE-BUENAVENTURA-min.jpg",
+                    "comidas_tipicas": [
+                        {
+                            "nombre": "Atollado de piangua",
+                            "imagen": "https://cdn.colombia.com/sdi/2011/08/02/arroz-atollado-496018.jpg",
+                            "descripcion": "Es un plato que se prepara con arroz, piangua y se acompaña con patacones o platano maduro cocido.",
+                            "precio_en_pesos": 15000,
+                            "precio_en_dolares": 4,
+                            "precio_en_euros": 3
+                        },
+                        {
+                            "nombre": "Sancocho de pescado",
+                            "imagen": "https://th.bing.com/th/id/R.6ab34bc8902aca7beceba0e808dec0ec?rik=pSL%2bVaxy76UL2w&pid=ImgRaw&r=0",
+                            "descripcion": "Es un plato que se prepara con pescado, yuca, plátano, maíz y se acompaña con arroz.",
+                            "precio_en_pesos": 20000,
+                            "precio_en_dolares": 5,
+                            "precio_en_euros": 4
+                        },
+                        {
+                            "nombre": "Ceviche de camarón",
+                            "imagen": "https://th.bing.com/th/id/OIP.vMfBeNuuLxsgEAbkg--UnQHaE8?rs=1&pid=ImgDetMain",
+                            "descripcion": "Es un plato que se prepara con camarón, limón, cebolla, tomate y se acompaña con tostadas de maíz.",
+                            "precio_en_pesos": 25000,
+                            "precio_en_dolares": 6,
+                            "precio_en_euros": 5
+                        }
+                    ]
                 }
             ]
         }
