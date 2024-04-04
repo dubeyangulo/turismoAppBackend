@@ -83,6 +83,26 @@ module.exports = {
         }
     },
 
+    createTableSitiosTuristicos: async function () {
+        const client = pool;
+        try {
+            await client.query(`CREATE TABLE IF NOT EXISTS sitios_turisticos (
+                id SERIAL PRIMARY KEY,
+                nombre VARCHAR(50) NOT NULL,
+                descripcion TEXT,
+                imagen varchar(255),
+                precio_en_pesos DECIMAL(10, 2),
+                precio_en_dolares DECIMAL(10, 2),
+                precio_en_euros DECIMAL(10, 2),
+                id_informacion_ciudades INT NOT NULL,
+                FOREIGN KEY (id_informacion_ciudades) REFERENCES informacion_ciudades(id)
+            )`);
+            console.log('Table sitios_turisticos created successfully.');
+        } catch (error) {
+            console.error('Error creating table sitios_turisticos:', error);
+        }
+    },
+
     // leer archivo json, obtener departamentos y ciudades, si no estan en la base de datos se insertan
     insertarDepartamentosYCiudades: async function () {
         fs.readFile('lugares.json', 'utf8', async (err, data) => {
@@ -173,6 +193,14 @@ module.exports = {
                                 await client.query('INSERT INTO comidas_tipicas (nombre, descripcion, imagen, precio_en_pesos, precio_en_dolares, precio_en_euros, id_informacion_ciudades) VALUES ($1, $2, $3, $4, $5, $6, $7)', [comida.nombre, comida.descripcion, comida.imagen, comida.precio_en_pesos, comida.precio_en_dolares, comida.precio_en_euros, idInformacionCiudades]);
                             }
                         }
+                        // consultar sitios turisticos por ciudad
+                        for (const sitio of ciudad.sitios_turisticos) {
+                            const result5 = await client.query('SELECT id FROM sitios_turisticos WHERE nombre = $1 AND id_informacion_ciudades = $2', [sitio.nombre, idInformacionCiudades]);
+                            if (result5.rowCount === 0) {
+                                // Insertar sitio turistico
+                                await client.query('INSERT INTO sitios_turisticos (nombre, descripcion, imagen, precio_en_pesos, precio_en_dolares, precio_en_euros, id_informacion_ciudades) VALUES ($1, $2, $3, $4, $5, $6, $7)', [sitio.nombre, sitio.descripcion, sitio.imagen, sitio.precio_en_pesos, sitio.precio_en_dolares, sitio.precio_en_euros, idInformacionCiudades]);
+                            }
+                        }
                     }
 
                     
@@ -213,7 +241,19 @@ module.exports = {
             console.error('Error querying data:', error);
             return [];
         }
-    }
+    },
+
+    //consultar informacion sitios turisticos
+    consultarSitiosTuristicos: async function (departamento, ciudad) {
+        const client = pool;
+        try {
+            const result = await client.query('SELECT i.nombre AS departamento, c.nombre AS ciudad, st.nombre AS sitio_turistico, st.descripcion, st.imagen, st.precio_en_pesos, st.precio_en_dolares, st.precio_en_euros FROM informacion_departamentos i JOIN informacion_ciudades c ON i.id = c.id_informacion_departamento JOIN sitios_turisticos st ON c.id = st.id_informacion_ciudades WHERE i.nombre = $1 AND c.nombre = $2', [departamento, ciudad]);
+            return result.rows;
+        } catch (error) {
+            console.error('Error querying data:', error);
+            return [];
+        }
+    },
 };
 
 

@@ -8,13 +8,15 @@
                     "nombre": "Bogotá",
                     "informacion": "",
                     "imagen": "",
-                    "comidas_tipicas": []
+                    "comidas_tipicas": [],
+                    "sitios_turisticos": []
                 },
                 {
                     "nombre": "Soacha",
                     "informacion": "",
                     "imagen": "",
-                    "comidas_tipicas": []
+                    "comidas_tipicas": [],
+                    "sitios_turisticos": []
                 }
             ]
         },
@@ -26,13 +28,15 @@
                     "nombre": "Medellín",
                     "informacion": "",
                     "imagen": "",
-                    "comidas_tipicas": []
+                    "comidas_tipicas": [],
+                    "sitios_turisticos": []
                 },
                 {
                     "nombre": "Envigado",
                     "informacion": "",
                     "imagen": "",
-                    "comidas_tipicas": []
+                    "comidas_tipicas": [],
+                    "sitios_turisticos": []
                 }
             ]
         },
@@ -44,7 +48,8 @@
                     "nombre": "Cali",
                     "informacion": "Cali es una ciudad colombiana, capital del departamento del Valle del Cauca, ubicada en el suroeste de Colombia, en la región natural conocida como Valle del Cauca. Es la tercera ciudad más poblada de Colombia después de Bogotá y Medellín. Es conocida como la capital de la salsa y la sucursal del cielo.",
                     "imagen": "",
-                    "comidas_tipicas": []
+                    "comidas_tipicas": [],
+                    "sitios_turisticos": []
                 },
                 {
                     "nombre": "Buenaventura",
@@ -74,6 +79,47 @@
                             "precio_en_pesos": 25000,
                             "precio_en_dolares": 6,
                             "precio_en_euros": 5
+                        }
+                    ],
+                    "sitios_turisticos": [
+                        {
+                            "nombre": "Malecón de Buenaventura",
+                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Malec%C3%B3n_de_Buenaventura.jpg",
+                            "descripcion": "Es un lugar turístico que se encuentra en el puerto de Buenaventura, es un lugar donde se puede disfrutar de la brisa marina y de la vista al mar. Ubicado en la Calle 1 con Carrera 1",
+                            "precio_en_dolares": 0,
+                            "precio_en_euros": 0
+                        },
+                        {
+                            "nombre": "Isla de la Palma",
+                            "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Cgmex82G2ilztdlv0dgeqiLRuYIJEsFuwy3sULhYXg&s",
+                            "descripcion": "Es una isla que se encuentra en el océano Pacífico, es un lugar turístico donde se puede disfrutar de la playa y de la naturaleza. Para llegar a la Isla de la Palma se debe tomar una lancha desde Buenaventura.",
+                            "precio_en_pesos": 0,
+                            "precio_en_dolares": 0,
+                            "precio_en_euros": 0
+                        },
+                        {
+                            "nombre": "Parque Nacional Natural Uramba Bahía Málaga",
+                            "imagen": "https://colombiapais.com/pagina-parques-nacionales-naturales/imagenes/bahia-malaga.jpg",
+                            "descripcion": "Es un parque nacional natural que se encuentra en el océano Pacífico, es un lugar turístico donde se puede disfrutar de la playa y de la naturaleza. Para llegar a Uramba Bahía Málaga se debe tomar una lancha desde Buenaventura.",
+                            "precio_en_pesos": 0,
+                            "precio_en_dolares": 0,
+                            "precio_en_euros": 0
+                        },
+                        {
+                            "nombre": "Reserva Natural San Cipriano",
+                            "imagen": "https://elcampesino.co/wp-content/uploads/2019/09/reserva-san-cipriano.jpg",
+                            "descripcion": "Es una reserva natural que se encuentra en la selva del Pacífico, es un lugar turístico donde se puede disfrutar de la naturaleza y de los ríos. Para llegar a San Cipriano se debe entrar por codoba y tomar una moto adaptada para andar por las vías férreas, es un recorrido de 30 minutos aproximadamente.",
+                            "precio_en_pesos": 0,
+                            "precio_en_dolares": 0,
+                            "precio_en_euros": 0
+                        },
+                        {
+                            "nombre": "Juanchaco y ladrilleros",
+                            "imagen": "https://ecolombiatours.com/wp-content/uploads/2019/12/Juanchaco-y-Ladrilleros-3-scaled-1-1.webp",
+                            "descripcion": "Es un lugar turístico que se encuentra en la costa del Pacífico, es un lugar donde se puede disfrutar de la playa y de la naturaleza. Para llegar a Juanchaco y Ladrilleros se debe tomar una lancha desde Buenaventura.",
+                            "precio_en_pesos": 0,
+                            "precio_en_dolares": 0,
+                            "precio_en_euros": 0
                         }
                     ]
                 }
