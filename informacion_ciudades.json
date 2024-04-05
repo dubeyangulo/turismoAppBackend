@@ -9,14 +9,16 @@
                     "informacion": "",
                     "imagen": "",
                     "comidas_tipicas": [],
-                    "sitios_turisticos": []
+                    "sitios_turisticos": [],
+                    "transporte": []
                 },
                 {
                     "nombre": "Soacha",
                     "informacion": "",
                     "imagen": "",
                     "comidas_tipicas": [],
-                    "sitios_turisticos": []
+                    "sitios_turisticos": [],
+                    "transporte": []
                 }
             ]
         },
@@ -29,14 +31,16 @@
                     "informacion": "",
                     "imagen": "",
                     "comidas_tipicas": [],
-                    "sitios_turisticos": []
+                    "sitios_turisticos": [],
+                    "transporte": []
                 },
                 {
                     "nombre": "Envigado",
                     "informacion": "",
                     "imagen": "",
                     "comidas_tipicas": [],
-                    "sitios_turisticos": []
+                    "sitios_turisticos": [],
+                    "transporte": []
                 }
             ]
         },
@@ -49,7 +53,8 @@
                     "informacion": "Cali es una ciudad colombiana, capital del departamento del Valle del Cauca, ubicada en el suroeste de Colombia, en la región natural conocida como Valle del Cauca. Es la tercera ciudad más poblada de Colombia después de Bogotá y Medellín. Es conocida como la capital de la salsa y la sucursal del cielo.",
                     "imagen": "",
                     "comidas_tipicas": [],
-                    "sitios_turisticos": []
+                    "sitios_turisticos": [],
+                    "transporte": []
                 },
                 {
                     "nombre": "Buenaventura",
@@ -120,6 +125,33 @@
                             "precio_en_pesos": 0,
                             "precio_en_dolares": 0,
                             "precio_en_euros": 0
+                        }
+                    ],
+
+                    "transporte": [
+                        {
+                            "nombre": "Coletivo",
+                            "precio": 3000,
+                            "precio_en_dolares": 1,
+                            "precio_en_euros": 1,
+                            "descripcion": "En un trasporte que recorre toda la ciudad, tiene rutas asignadas para los diferentes sectores de la ciudad, el centro es común en todas las rutas",
+                            "imagen": "https://img.clasf.co/2019/03/02/Vendo-colectivo-Nissan-Urvan-modelo-2011-totalmente-20190302070015.4579540015.jpg"
+                        },
+                        {
+                            "nombre": "Carpati",
+                            "precio": 2400,
+                            "precio_en_dolares": 1,
+                            "precio_en_euros": 1,
+                            "descripcion": "En un trasporte que recorre toda la ciudad, tiene rutas asignadas para los diferentes sectores de la ciudad, el centro es común en todas las rutas",
+                            "imagen": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKL4iunQ7guQBeOmWbjjZOzhfGwUsZh5tC670TG3bQBxoEmBSpZd9N4W7C25ATpTpbERqTvZAMCqaoFnbeDwmfVNmp2cuuE_bwaJx25ZGvcVtVESYVk7k6MwRTjdj6nhHB909afOr46YWp/w1200-h630-p-k-no-nu/P4180005.JPG"
+                        },
+                        {
+                            "nombre": "Taxi",
+                            "precio": 3000,
+                            "precio_en_dolares": 1,
+                            "precio_en_euros": 1,
+                            "descripcion": "En un trasporte que recorre toda la ciudad, tiene rutas asignadas para los diferentes sectores de la ciudad, el centro es común en todas las rutas",
+                            "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNmchWjhDkK-x9afVdRyJfRXd8doVxutUM1wfANcc-nw&s"
                         }
                     ]
                 }

@@ -108,6 +108,34 @@ app.get('/sitios_turisticos/:departamento/:ciudad', (req, res) => {
         });
 });
 
+//consultamos transporte de un departamento y ciudad en especifico
+app.get('/transporte/:departamento/:ciudad', (req, res) => {
+    //consultamos si el departemento y ciudad existe en la base de datos
+    consultasDb.consultarDepartamentoCiudad(req.params.departamento, req.params.ciudad)
+        .then((result) => {
+            if (result.length === 0) {
+                res.status(404).send('No se encontró la información solicitada');
+            } else {
+                consultasDb.consultarTransporte(req.params.departamento, req.params.ciudad)
+                    .then((result) => {
+                        if (result.length === 0) {
+                            res.status(404).send('No se encontró la información solicitada');
+                        } else {
+                            res.json(result);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        res.status(500).send('Hubo un error al consultar la base de datos');
+                    });
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send('Hubo un error al consultar la base de datos');
+        });
+});
+
 
 (async () => {
     try{
@@ -119,6 +147,7 @@ app.get('/sitios_turisticos/:departamento/:ciudad', (req, res) => {
         await consultasDb.createTableInformacionCiudades();
         await consultasDb.createTableComidasTipicas();
         await consultasDb.createTableSitiosTuristicos();
+        await consultasDb.createTableTransporte();
         await consultasDb.insertarDepartamentosYCiudades();
         await consultasDb.insertarInformacionDepartamentoYCiudad();
         

@@ -103,6 +103,26 @@ module.exports = {
         }
     },
 
+    createTableTransporte: async function () {
+        const client = pool;
+        try {
+            await client.query(`CREATE TABLE IF NOT EXISTS transporte (
+                id SERIAL PRIMARY KEY,
+                nombre VARCHAR(50) NOT NULL,
+                descripcion TEXT,
+                imagen varchar(255),
+                precio_en_pesos DECIMAL(10, 2),
+                precio_en_dolares DECIMAL(10, 2),
+                precio_en_euros DECIMAL(10, 2),
+                id_informacion_ciudades INT NOT NULL,
+                FOREIGN KEY (id_informacion_ciudades) REFERENCES informacion_ciudades(id)
+            )`);
+            console.log('Table transporte created successfully.');
+        } catch (error) {
+            console.error('Error creating table transporte:', error);
+        }
+    },
+
     // leer archivo json, obtener departamentos y ciudades, si no estan en la base de datos se insertan
     insertarDepartamentosYCiudades: async function () {
         fs.readFile('lugares.json', 'utf8', async (err, data) => {
@@ -201,6 +221,14 @@ module.exports = {
                                 await client.query('INSERT INTO sitios_turisticos (nombre, descripcion, imagen, precio_en_pesos, precio_en_dolares, precio_en_euros, id_informacion_ciudades) VALUES ($1, $2, $3, $4, $5, $6, $7)', [sitio.nombre, sitio.descripcion, sitio.imagen, sitio.precio_en_pesos, sitio.precio_en_dolares, sitio.precio_en_euros, idInformacionCiudades]);
                             }
                         }
+                        // consultar transporte por ciudad
+                        for (const transporte of ciudad.transporte) {
+                            const result6 = await client.query('SELECT id FROM transporte WHERE nombre = $1 AND id_informacion_ciudades = $2', [transporte.nombre, idInformacionCiudades]);
+                            if (result6.rowCount === 0) {
+                                // Insertar transporte
+                                await client.query('INSERT INTO transporte (nombre, descripcion, imagen, precio_en_pesos, precio_en_dolares, precio_en_euros, id_informacion_ciudades) VALUES ($1, $2, $3, $4, $5, $6, $7)', [transporte.nombre, transporte.descripcion, transporte.imagen, transporte.precio_en_pesos, transporte.precio_en_dolares, transporte.precio_en_euros, idInformacionCiudades]);
+                            }
+                        }
                     }
 
                     
@@ -254,6 +282,18 @@ module.exports = {
             return [];
         }
     },
+
+    //consultar informacion transporte
+    consultarTransporte: async function (departamento, ciudad) {
+        const client = pool;
+        try {
+            const result = await client.query('SELECT i.nombre AS departamento, c.nombre AS ciudad, t.nombre AS transporte, t.descripcion, t.imagen, t.precio_en_pesos, t.precio_en_dolares, t.precio_en_euros FROM informacion_departamentos i JOIN informacion_ciudades c ON i.id = c.id_informacion_departamento JOIN transporte t ON c.id = t.id_informacion_ciudades WHERE i.nombre = $1 AND c.nombre = $2', [departamento, ciudad]);
+            return result.rows;
+        } catch (error) {
+            console.error('Error querying data:', error);
+            return [];
+        }
+    }
 };
 
 
